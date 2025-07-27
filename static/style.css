@@ -1,0 +1,59 @@
+body {
+  background: #f3f4f6;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 50px;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 20px;
+}
+
+a.btn-secondary {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+  color: white;
+  transition: all 0.3s ease;
+}
+a.btn-secondary:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: white;
+}
+
+h2 {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+h5.text-muted {
+  font-style: italic;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+  background-color: #e2e8f0;
+  padding: 5px;
+}
+
+.quran-ayah {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  line-height: 2.2;
+  font-size: 22px;
+  font-family: 'Scheherazade New', serif;
+  direction: rtl;
+  text-align: right;
+}
+
+.quran-ayah span {
+  font-size: 16px;
+  margin-left: 5px;
+  color: #0ea5e9;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ uzbek_name }} – Qur'on</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background: linear-gradient(to right, #f9f9f9, #e0f7ec);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+    .card-custom {
+      background-color: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .quran-text {
+      font-size: 1.7rem;
+      line-height: 2.6rem;
+      direction: rtl;
+      text-align: right;
+      color: #222;
+      font-family: 'Scheherazade', serif;
+    }
+    .ayah-number {
+      color: #198754;
+      font-size: 1.2rem;
+      margin: 0 4px;
+    }
+    audio {
+      width: 100%;
+    }
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+
+    <!-- 🔙 Orqaga qaytish -->
+    <a href="/" class="btn btn-outline-secondary mb-3">
+      <i class="bi bi-arrow-left-circle"></i> Bosh sahifa
+    </a>
+
+    <!-- 📖 Sura nomi -->
+    <div class="text-center mb-4">
+      <h2 class="text-success">{{ uzbek_name }}</h2>
+      <h5 class="text-muted">{{ sura.englishName }} – {{ sura.englishNameTranslation }}</h5>
+    </div>
+
+    <!-- 🎧 Audio -->
+    <div class="card-custom text-center mb-5">
+      <h5 class="mb-3 text-primary"><i class="bi bi-volume-up-fill"></i> Sura audiosi</h5>
+      <audio controls>
+        <source src="{{ audio_url }}" type="audio/mpeg">
+        Brauzeringiz audio fayllarni qo‘llab-quvvatlamaydi.
+      </audio>
+    </div>
+
+    <!-- 🕋 Qur'on matni to‘liq -->
+    <div class="card-custom quran-text">
+      {% for ayah in sura.ayahs %}
+        {{ ayah.text }} <span class="ayah-number">﴿{{ ayah.numberInSurah }}﴾</span>
+      {% endfor %}
+    </div>
+
+    <!-- 👣 Footer -->
+    <footer>
+      <hr>
+      Qur'on sahifasi – <span class="text-success">api.alquran.cloud</span> yordamida ishlab chiqildi
+    </footer>
+  </div>
+</body>
+</html>
